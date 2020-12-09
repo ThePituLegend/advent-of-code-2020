@@ -19,9 +19,9 @@ for passport in input:
                 if 2020 <= int(passport["eyr"]) <= 2030:
                     if ("cm" in passport["hgt"] and 150 <= int(passport["hgt"][:-2]) <= 193) or \
                         ("in" in passport["hgt"] and 59 <= int(passport["hgt"][:-2]) <= 76):
-                        if re.match(r"#[0-9a-f]{6}", passport["hcl"]):
+                        if re.match(r"^#[0-9a-f]{6}$", passport["hcl"]):
                             if passport["ecl"] in ecl:
-                                if re.match(r"[0-9]{9}", passport["pid"]):
+                                if re.match(r"^[0-9]{9}$", passport["pid"]):
                                         count += 1
 
 print(count)
