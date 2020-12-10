@@ -1,10 +1,10 @@
 def sumBags(name, rules):
     if len(rules[name]) == 0:
-        return 1
+        return 0
     else:
         count = 0
         for subr, ammount in rules[name].items():
-            count += int(ammount) * sumBags(subr, rules)
+            count += int(ammount) + int(ammount) * sumBags(subr, rules)
         return count
 
 with open("input.txt", "r") as file:
@@ -28,6 +28,6 @@ for name, rule in rules.items():
 
 count = 0;
 for name, ammount in newRules["shiny gold"].items():
-    count += int(ammount) * sumBags(name, newRules)
+    count += int(ammount) + int(ammount) * sumBags(name, newRules)
 
 print(count)
